@@ -1,0 +1,112 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="./output.css" rel="stylesheet">
+    <title>Investment Portal</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        main {
+            flex: 1;
+        }
+
+        footer {
+            background-color: #1a202c; /* Custom dark color */
+        }
+    </style>
+</head>
+
+<body class="bg-slate-500">
+
+    <nav class="flex justify-end space-x-5 bg-slate-300 p-4">
+        <h1 class="mr-auto">Investment Portal</h1>
+        <ul class="flex">
+            <li class="mr-5">
+                <a class="text-black font-bold hover:text-red-600" href="#">Home</a>
+            </li>
+            <li class="mr-5">
+                <a class="text-black font-bold hover:text-red-600" href="#">Company</a>
+            </li>
+            <li class="mr-5">
+                <a class="text-black font-bold hover:text-red-600" href="#">Research</a>
+            </li>
+            <li class="mr-5">
+                <a class="text-black font-bold hover:text-red-600" href="#">Valuation</a>
+            </li>
+            <li class="mr-5">
+                <a class="text-black font-bold hover:text-red-600" href="#">Financial</a>
+            </li>
+            <li class="mr-5">
+                <a class="text-black font-bold hover:text-red-600" href="#">Market</a>
+            </li>
+            <li class="mr-5">
+                <a class="text-black font-bold hover:text-red-600" href="#">MarketPedia</a>
+            </li>
+            <li class="mr-5">
+                <a href="{% url 'signup'%}" class="border text-black font-bold border-black py-1 px-2 rounded text-sm text-right">Sign Up</a>
+            </li>
+            <li>
+                <a href="{% url 'login' %}" class="border text-black font-bold border-black py-1 px-2 rounded text-sm text-right">LogIn</a>
+            </li>
+        </ul>
+    </nav>
+
+    <main>
+        <div class="mt-10 mx-auto max-w-xs w-96">
+            <p class="p-10">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt, doloribus dicta, temporibus deleniti pariatur eum quae, at nulla neque earum excepturi nostrum autem perferendis similique voluptas magni aspernatur obcaecati necessitatibus.</p>
+            <form class="shadow-md rounded px-8 pt-6 pb-8 mb-4 w-96">
+                <div class="mb-4">
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="search">
+                        Search
+                    </label>
+                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="search" type="text" placeholder="Search...">
+                </div>
+                <div class="flex items-center justify-between">
+                    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">
+                        Search
+                    </button>
+                </div>
+            </form>
+        </div>
+
+        <div class="flex flex-wrap justify-around p-2">
+            <div class="w-96 p-4">
+                <img src="{% static 'images/stock2.jpg' %}" class="w-full h-auto" alt="Stock Market Image">
+                <h3>Image of Stock Market</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam animi consectetur maiores, repudiandae ut corrupti vel expedita cum. Illum doloremque eum nemo. Recusandae distinctio vero nemo doloremque in, perspiciatis quas.</p>
+            </div>
+        </div>
+    </main>
+
+    <footer class="shadow m-4 dark:bg-black rounded-lg mt-4 bg-gray-800 text-white py-6">
+        <div class="w-full mx-auto max-w-screen-xl p-4 md:flex md:items-center md:justify-between">
+            <span class="text-sm text-white sm:text-center dark:text-gray-400">© 2024 <a href="#" class="hover:underline">Ansu Invest™</a>. All Rights Reserved.</span>
+            <ul class="flex flex-wrap items-center mt-3 text-sm font-medium text-white dark:text-white sm:mt-0">
+                <li>
+                    <a href="#" class="hover:underline me-4 md:me-6">About</a>
+                </li>
+                <li>
+                    <a href="#" class="hover:underline me-4 md:me-6">Privacy Policy</a>
+                </li>
+                <li>
+                    <a href="#" class="hover:underline me-4 md:me-6">Licensing</a>
+                </li>
+                <li>
+                    <a href="#" class="hover:underline">Contact</a>
+                </li>
+            </ul>
+        </div>
+    </footer>
+
+</body>
+
+</html>
