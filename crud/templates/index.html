@@ -80,9 +80,11 @@
 
         <div class="flex flex-wrap justify-around p-2">
             <div class="w-96 p-4">
+                {%for i in stock%}
                 <img src="{% static 'images/stock2.jpg' %}" class="w-full h-auto" alt="Stock Market Image">
                 <h3>Image of Stock Market</h3>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam animi consectetur maiores, repudiandae ut corrupti vel expedita cum. Illum doloremque eum nemo. Recusandae distinctio vero nemo doloremque in, perspiciatis quas.</p>
+                {%endfor%}
             </div>
         </div>
     </main>
