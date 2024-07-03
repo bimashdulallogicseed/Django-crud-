@@ -14,22 +14,7 @@
 # #     1. Import the include() function: from django.urls import include, path
 # #     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 # # """
-# from django.conf import settings
-# from django.contrib import admin
-# from django.urls import path,include
-# from app.views import  home,login,test,signup,logout,saveprofile
-# from django.conf.urls.static import static
 
-# urlpatterns = [
-#     path('admin/', admin.site.urls),
-#     path('', home ,name='index'),
-#     path('login/', login, name='login'),
-#     path('test/',test,name='test'),
-#     path('signup/',signup,name= 'signup'),
-#     path('logout/',logout,name= 'logout'),
-#     path('saveprofile/',saveprofile,name= 'saveprofile'),
-  
-# ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 
 
