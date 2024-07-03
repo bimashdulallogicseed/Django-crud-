@@ -36,18 +36,18 @@
 from django.conf import settings
 from django.contrib import admin
 from django.urls import path
-from app.views import home, login, signup, logout, profileCreate, profileEdit
+from app.views import home, login, signup, logoutu, profileCreate, profileEdit, profileDelete
 from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', home, name='index'),
     path('login/', login, name='login'),
-   
     path('signup/', signup, name='signup'),
-    path('logout/', logout, name='logout'),   
+    path('logout/', logoutu, name='logout'),   
     path('profileCreate/', profileCreate, name='profileCreate'),
     path('profileEdit/<int:pk>/', profileEdit, name='profileEdit'),
+    path('profileDelete/<int:pk>/', profileDelete,name='profileDelete'),
     
     
     

@@ -5,8 +5,7 @@ class UserModel(models.Model):
     name = models.CharField(max_length=250)
     email = models.EmailField()
     password = models.CharField(max_length=128)  # Stores hashed password
-    image=models.ImageField(upload_to='static/images/',default='')
-    
+    image = models.ImageField(upload_to='static/images/', default=None, blank=True, null=True)
     
     def set_password(self, raw_password):
         self.password = make_password(raw_password)
