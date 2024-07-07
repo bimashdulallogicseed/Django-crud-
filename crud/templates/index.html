@@ -25,37 +25,75 @@
     </style>
 </head>
 
-<body class="bg-slate-500">
 
-    <nav class="flex justify-end space-x-5 bg-slate-300 p-4">
+<body class="bg-slate-500">
+    <div class="relative flex overflow-x-hidden">
+        <div class=" animate-marquee whitespace-nowrap flex items-center justify-center">
+            
+            <p class="p-2">Stock1</p>
+            <p class="p-2">Stock2</p>
+            <p class="p-2">Stock3</p>
+            <p class="p-2">Stock4</p>
+            <p class="p-2">Stock5</p>
+            <p class="p-2">Stock6</p>
+            <p class="p-2">Stock7</p>
+            <p class="p-2">Stock8</p>
+            <p class="p-2">Stock9</p>
+            <p class="p-2">Stock10</p>
+            <p class="p-2">Stock11</p>
+            <p class="p-2">Stock12</p>
+            <p class="p-2">Stock13</p>
+            <p class="p-2">Stock14</p>
+           
+        </div>
+    
+        <div class=" animate-marquee2 hitespace-nowrap flex items-center justify-center">
+            <p class="p-2">Stock1</p>
+            <p class="p-2">Stock2</p>
+            <p class="p-2">Stock3</p>
+            <p class="p-2">Stock4</p>
+            <p class="p-2">Stock5</p>
+            <p class="p-2">Stock6</p>
+            <p class="p-2">Stock7</p>
+            <p class="p-2">Stock8</p>
+            <p class="p-2">Stock9</p>
+            <p class="p-2">Stock10</p>
+            <p class="p-2">Stock11</p>r
+            <p class="p-2">Stock12</p>
+            <p class="p-2">Stock13</p>
+           
+        </div>
+    </div>
+
+    <nav class="flex justify-end space-x-5 bg-slate-300 p-4 sticky top-0">
         <h1 class="mr-auto">Investment Portal</h1>
         <ul class="flex">
             <li class="mr-5">
-                <a class="text-black font-bold hover:text-red-600" href="#">Home</a>
+                <a class="text-black font-bold hover:text-red-600" href="{% url 'index'%}">Home</a>
             </li>
             <li class="mr-5">
-                <a class="text-black font-bold hover:text-red-600" href="#">Company</a>
+                <a class="text-black font-bold hover:text-red-600" href="{% url 'index'%}">Company</a>
             </li>
             <li class="mr-5">
-                <a class="text-black font-bold hover:text-red-600" href="#">Research</a>
+                <a class="text-black font-bold hover:text-red-600" href="{% url 'index'%}">Research</a>
             </li>
             <li class="mr-5">
-                <a class="text-black font-bold hover:text-red-600" href="#">Valuation</a>
+                <a class="text-black font-bold hover:text-red-600" href="{% url 'index'%}">Valuation</a>
             </li>
             <li class="mr-5">
-                <a class="text-black font-bold hover:text-red-600" href="#">Financial</a>
+                <a class="text-black font-bold hover:text-red-600" href="{% url 'index'%}">Financial</a>
             </li>
             <li class="mr-5">
-                <a class="text-black font-bold hover:text-red-600" href="#">Market</a>
+                <a class="text-black font-bold hover:text-red-600" href="{% url 'index'%}">Market</a>
             </li>
             <li class="mr-5">
-                <a class="text-black font-bold hover:text-red-600" href="#">MarketPedia</a>
+                <a class="text-black font-bold hover:text-red-600" href="{% url 'index'%}">MarketPedia</a>
             </li>
             <li class="mr-5">
-                <a href="{% url 'signup'%}" class="border text-black font-bold border-black py-1 px-2 rounded text-sm text-right hover:bg-red-800">Sign Up</a>
+                <a href="{% url 'signup'%}" class="border text-black font-bold border-black py-1 px-2 rounded text-sm text-right hover:text-red-600">Sign Up</a>
             </li>
             <li>
-                <a href="{% url 'login' %}" class="border text-black font-bold border-black py-1 px-2 rounded text-sm text-right hover:bg-red-800">LogIn</a>
+                <a href="{% url 'login' %}" class="border text-black font-bold border-black py-1 px-2 rounded text-sm text-right hover:text-red-600">LogIn</a>
             </li>
         </ul>
     </nav>

@@ -1,42 +1,54 @@
-{% load static %}
+ {% comment %} {% load static %}
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="../images/static/src/output.css" rel="stylesheet">
-    {% comment %} <script src="https://cdn.tailwindcss.com"></script> {% endcomment %}
+    <link href="/images/static/src/output.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script> 
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <title>Investment Portal</title>
 </head>
+<script>
+    function flip(){
+        var ab = document.getElementById("editdiv");
+        if (ab.style.display === "none"){
+            ab.style.display = "inline-block";
+
+        }
+        else{
+            ab.style.display = "none";
+        }
+}
+</script>
 <body class="bg-slate-900">
     <div class="bg-black text-black p-4 flex justify-between items-center">
-        <div class="font-bold text-white text-left">Ansu Invest</div>
-        <nav class="flex gap-5 mr-16 mt-.5">
-            <a href="#" class="text-white text-sm text-right">Home</a>
-            <a href="#" class="text-white text-sm text-right">Company</a>
-            <a href="#" class="text-white text-sm text-right">Research</a>
-            <a href="#" class="text-white text-sm text-right">Valuation</a>
-            <a href="#" class="text-white text-sm text-right">Financial</a>
-            <a href="#" class="text-white text-sm text-right">Markets</a>
-            <a href="#" class="text-white text-sm text-right">Marketpedia</a>
-            <a href="{% url 'logout' %}" class="border border-white py-1 px-2 rounded text-white text-sm text-right">Log Out</a>
+        <div class="font-bold text-white text-left ml-50 ">Ansu Invest</div>
+        <nav class="flex gap-5 ml-96 mt-.5">
+            <a href="{% url 'index'%}" class="text-white text-sm text-right hover:text-red-600">Home</a>
+            <a href="{% url 'index'%}" class="text-white text-sm text-right hover:text-red-600">Company</a> 
+            <a href="{% url 'index'%}" class="text-white text-sm text-right hover:text-red-600">Research</a>
+            <a href="{% url 'index'%}" class="text-white text-sm text-right hover:text-red-600">Valuation</a>
+            <a href="{% url 'index'%}" class="text-white text-sm text-right hover:text-red-600">Financial</a>
+            <a href="{% url 'index'%}" class="text-white text-sm text-right hover:text-red-600">Markets</a>
+            <a href="{% url 'index'%}" class="text-white text-sm text-right hover:text-red-600">Marketpedia</a>
+            <a href="{% url 'logout' %}" class=" hover:text-red-500 border border-white py-1 px-2 rounded text-white text-sm text-right transition  ease-in-out ">Log Out</a>
         </nav>
     </div>
     <div class="h-full">
         <div class="border-b-2 block md:flex">
-            <div class="w-full md:w-2/5 p-4 sm:p-6 lg:p-8 bg-white shadow-md">
+            <div class="w-full md:w-2/5 p-4 sm:p-6 lg:p-8 bg-black shadow-md ">
                 <div class="flex justify-between">
                     <span class="text-xl font-semibold block">Profile</span>
                 </div>
                 {%if user.image%}
-                    <div class="w-full p-8 mx-2 flex justify-center">
-                        <img id="showImage" class="w-50 items-center border" src="{{ user.image.url}}" alt="">
+                    <div class="w-full p-8 mx-2 flex justify-center ">
+                        <img id="showImage" class="w-50 items-center  rounded-full w-80 h-80" src="{{ user.image.url}}" alt="">
                     </div>
                 {%else%}
-                    <div class="w-full p-8 mx-2 flex justify-center">
-                        <img id="showImage" class="w-50 items-center border" src="{% static 'images/stock2.jpg' %}" alt="">
+                    <div class="w-full p-8 mx-2 flex justify-center ">
+                        <img id="showImage" class="  eounded-full h-80 w-80 items-center " src="{% static 'images/stock2.jpg' %}" alt="">
                     </div>
                 {%endif%}
             </div>
@@ -47,34 +59,133 @@
                         <div class="pb-6">
                             <label for="name" class="font-semibold text-gray-700 block pb-1">Name</label>
                             <div class="flex">
-                                <input id="username" name="name" class="border-1 rounded-r px-4 py-2 w-full" type="text" value="{{ user.name }}" />
+                                <input id="username" name="name" class="border-2 rounded-r px-4 py-2 w-full" type="text" value="{{ user.name }}" />
                             </div>
                         </div>
                         <div class="pb-6">
                             <label for="password" class="font-semibold text-gray-700 block pb-1">Password</label>
                             <div class="flex">
-                                <input id="password" name="password" class="border-1 rounded-r px-4 py-2 w-full" type="text" value="{{ user.password }}" />
+                                <input id="password" name="password" class="border-2 rounded-r px-4 py-2 w-full" type="text" value="{{ user.password }}" />
                             </div>
                         </div>
                         <div class="pb-4">
                             <label for="about" class="font-semibold text-gray-700 block pb-1">Email</label>
-                            <input id="email" name="email" class="border-1 rounded-r px-4 py-2 w-full" type="email" value="{{ user.email }}" />
+                            <input id="email" name="email" class="border-2 rounded-r px-4 py-2 w-full" type="email" value="{{ user.email }}" />
                             <span class="text-gray-600 pt-4 block opacity-70"></span>
                         </div>
                         <div class="mb-4">
                             <label for="profile_picture" class="block text-gray-700 text-sm font-bold mb-2">Profile Picture</label>
-                            <input type="file" name="image" id="profile_picture" class="w-full px-3 py-2 border rounded-md focus:outline-none focus:border-blue-500"  aria-label="Profile Picture">
+                            <input type="file" name="image" id="profile_picture" class="w-full px-3 py-2 border-2 rounded-md focus:outline-none focus:border-blue-500"  aria-label="Profile Picture">
                         </div>
 
-                        <button type="submit" class="border border-black text-center w-20 rounded text-black font-bold">Save</button> </form>
+                        <button type="submit" class=" border border-black text-center w-20 rounded text-black font-bold  hover:text-red-600">Save</button> </form>
                     </div>
                
                     <form method="post" action='{%url 'profileDelete' user.pk%}'>
                         {% csrf_token %}
-                        <button type="submit" class="  mt-10 border border-black text-center w-20 rounded text-black font-bold">Delete</button>
+                        <button type="submit" class=" hover:text-red-600 mt-10 border border-black text-center w-20 rounded text-black font-bold">Delete</button>
                     </form>
             </div>
         </div>
     </div>
+</body>
+</html> {% endcomment %}
+ 
+
+
+
+ 
+
+
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% comment %} <link rel="stylesheet" href="{% static 'src/output.css' %}"> {% endcomment %}
+    <link href="/images/static/src/output.css" rel="stylesheet">
+    <title>InvestApp</title>
+    <script>
+        function flip(){
+            var ab = document.getElementById("editdiv");
+            if (ab.style.display === "none"){
+                ab.style.display = "inline-block";
+
+            }
+            else{
+                ab.style.display = "none";
+            }
+
+
+        }
+    </script>
+</head>
+<body class="bg-slate-900 min-h-screen flex flex-col justify-center items-center">
+    <!-- Navbar -->
+    <div class="fixed top-0 bg-black text-black p-4 w-full flex justify-between items-center">
+        <div class="font-bold text-white text-left">InvestApp</div>
+        <nav class="flex gap-5 ml-96 mt-.5">
+            <a href="{% url 'index'%}" class="text-white text-sm text-right hover:text-red-600">Home</a>
+            <a href="{% url 'index'%}" class="text-white text-sm text-right hover:text-red-600">Company</a> 
+            <a href="{% url 'index'%}" class="text-white text-sm text-right hover:text-red-600">Research</a>
+            <a href="{% url 'index'%}" class="text-white text-sm text-right hover:text-red-600">Valuation</a>
+            <a href="{% url 'index'%}" class="text-white text-sm text-right hover:text-red-600">Financial</a>
+            <a href="{% url 'index'%}" class="text-white text-sm text-right hover:text-red-600">Markets</a>
+            <a href="{% url 'index'%}" class="text-white text-sm text-right hover:text-red-600">Marketpedia</a>
+            <a href="{% url 'logout' %}" class=" hover:text-red-500 border border-white py-1 px-2 rounded text-white text-sm text-right transition  ease-in-out ">Log Out</a>
+        </nav>
+    </div>
+
+    <!-- Profile Card -->
+    <div class="mt-20 bg-white rounded-lg shadow-lg overflow-hidden w-96">
+        <div class="bg-gradient-to-r from-red-500 via-red-600 to-red-700 p-6 text-center">
+            {% if user.img %}
+                <img class="w-24 h-24 rounded-full mx-auto border-4 border-white" src="{{ user.image.url}}" alt="User Image">
+            {% else %}
+                <img class="w-24 h-24 rounded-full mx-auto border-4 border-white" src="{{ user.image.url}}" alt="Default Image">
+            {% endif %}
+        </div>
+        <div class="p-6 text-center">
+            <h2 class="text-2xl font-semibold text-gray-800">{{ user.uname }}</h2>
+            <div class="mt-4 space-y-2 text-left">
+                <p class="text-gray-700"><strong>Name:</strong> {{ user.name}}</p>
+                <p class="text-gray-700"><strong>Email:</strong> {{ user.email }}</p>
+            </div>
+            <div class="mt-10">
+                <button onClick = "flip()" type="submit" class="w-full bg-blue-500 text-white p-2 rounded font-bold hover:bg-green-500 ">Edit</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Edit Profile Form -->
+    <div id="editdiv" class="bg-white rounded-lg shadow-lg p-6 w-96 mt-10" style="display:none">
+        <form action="{% url 'profileEdit' user.pk %}" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="mb-4">
+                <label for="name" class="block text-gray-700 font-bold mb-2">Name</label>
+                <input id="name" name="name" type="text" value="{{ user.name }}" class="w-full border border-gray-300 p-2 rounded">
+            </div>
+            <div class="mb-4">
+                <label for="password" class="block text-gray-700 font-bold mb-2">Password</label>
+                <input id="password" name="password" type="password" value="{{ user.password }}" class="w-full border border-gray-300 p-2 rounded">
+            </div>
+            <div class="mb-4">
+                <label for="email" class="block text-gray-700 font-bold mb-2">Email</label>
+                <input id="email" name="email" type="email" value="{{ user.email }}" class="w-full border border-gray-300 p-2 rounded">
+            </div>
+            <div class="mb-4">
+                <label for="image" class="block text-gray-700 font-bold mb-2">Profile Picture</label>
+                <input id="image" name="image" type="file" class="w-full border border-gray-300 p-2 rounded">
+            </div>
+            <button type="submit" class="w-full bg-blue-500 text-white p-2 rounded font-bold hover:bg-green-500 ">Save</button>
+        </form>
+        <form action="{% url 'profileDelete' user.pk %}" method="post" class="mt-4">
+            {% csrf_token %}
+            <button type="submit" class="w-full bg-blue-500 text-white p-2 rounded font-bold hover:bg-green-500 ">Delete</button>
+        </form>
+    </div>
+
 </body>
 </html>
