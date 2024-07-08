@@ -1,5 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
+  darkMode:'selector',
   content: [
     './crud/templates/**/*.html'
   ],
@@ -23,7 +24,4 @@ module.exports = {
     },
   },
   plugins: [],
-}
-module.exports={
-  darkMode:'selector',
 }
